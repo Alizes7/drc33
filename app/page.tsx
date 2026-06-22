@@ -1,0 +1,29 @@
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import AreasSection from "@/components/AreasSection";
+import DiferenciaisSection from "@/components/DiferenciaisSection";
+import EquipeSection from "@/components/EquipeSection";
+import DepoimentosSection from "@/components/DepoimentosSection";
+import ArtigosSection from "@/components/ArtigosSection";
+import CTASection from "@/components/CTASection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-[#0B0A08]" id="conteudo-principal">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <AreasSection />
+      <DiferenciaisSection />
+      <EquipeSection />
+      <DepoimentosSection />
+      <ArtigosSection />
+      <CTASection />
+      <ContactSection />
+      <Footer />
+    </main>
+  );
+}
