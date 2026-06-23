@@ -9,39 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brass: {
-          200: "#E7C98A",
-          400: "#D9AA5C",
-          500: "#B6883A",
-          600: "#9C7430",
-          700: "#8C6526",
-        },
-        ink: {
-          900: "#0B0A08",
-          800: "#100F0B",
-          700: "#110F0A",
-          600: "#1C1A14",
-          500: "#1E1B15",
-        },
-        parchment: {
-          100: "#F1ECDD",
-          200: "#E4DCC8",
-        },
-        stone: {
-          400: "#9C9484",
-          500: "#6E6757",
-          600: "#4A453A",
-          700: "#38342B",
-        },
+        ivory: { DEFAULT: "#F8F4EC", soft: "#F3EFE6" },
+        bege:  { DEFAULT: "#EFE6D8", deep: "#E3D5C0" },
+        gold:  { DEFAULT: "#B8893B", bright: "#D4A84B", deep: "#8E682B" },
+        ink:   { DEFAULT: "#222222", soft: "#3A3732" },
+        stone: { DEFAULT: "#6C665D", light: "#9A948C", faint: "#C8C2BA" },
       },
       fontFamily: {
-        display: ["'Fraunces'", "serif"],
-        sans: ["'Inter'", "sans-serif"],
-        mono: ["'IBM Plex Mono'", "monospace"],
+        display: ["'Cormorant Garamond'", "serif"],
+        ui:      ["'Montserrat'", "sans-serif"],
       },
+      maxWidth: { site: "1280px" },
     },
   },
   plugins: [],
 };
-
 export default config;
