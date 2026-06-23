@@ -2,41 +2,54 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import BrandMark from "./BrandMark";
 
 export default function CTASection() {
   return (
-    <section className="relative py-28 md:py-36 bg-[#0B0A08] overflow-hidden" aria-label="Chamada para ação">
-      <div className="absolute right-[-60px] top-1/2 -translate-y-1/2 text-[#B6883A] opacity-[0.06] pointer-events-none hidden md:block">
-        <BrandMark size={420} strokeWidth={0.75} />
+    <section
+      className="relative py-28 md:py-36 overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #8E682B 0%, #B8893B 50%, #8E682B 100%)" }}
+      aria-label="Chamada para ação"
+    >
+      {/* Decoração: arcos em negativo */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-10" viewBox="0 0 700 700">
+          {[300, 240, 180, 120].map((r) => (
+            <circle key={r} cx="350" cy="350" r={r} fill="none" stroke="white" strokeWidth="1" />
+          ))}
+        </svg>
+        {/* Grade suave */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "linear-gradient(white 1px,transparent 1px),linear-gradient(90deg,white 1px,transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
         >
-          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#B6883A] mb-6 block">
-            Agende uma conversa
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-[#F1ECDD] mb-6 leading-tight">
-            Pronto para <em className="not-italic text-brass-gradient">proteger</em> seu negócio?
+          <p className="font-ui text-[10.5px] tracking-[0.25em] uppercase text-white/60 mb-6">Vamos conversar</p>
+          <h2 className="font-display text-[2.6rem] sm:text-5xl lg:text-6xl text-white font-light leading-tight mb-6 max-w-3xl mx-auto">
+            Vamos conversar sobre o futuro do seu negócio?
           </h2>
-          <p className="text-[#9C9484] mb-10 leading-relaxed">
-            Agende sua consulta jurídica hoje mesmo e descubra como nossa advocacia
-            pode fazer a diferença em sua empresa.
+          <p className="font-ui font-light text-white/75 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10">
+            Agende uma conversa com a nossa equipe e descubra como podemos apoiar suas
+            decisões com segurança jurídica e estratégia.
           </p>
           <a
             href="https://wa.me/5511912252450"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-9 py-4 bg-[#B6883A] text-[#0B0A08] font-mono text-xs tracking-[0.12em] uppercase hover:bg-[#D9AA5C] transition-colors duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#B6883A] focus-visible:outline-offset-2"
-            aria-label="Fale conosco pelo WhatsApp"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-9 py-4 bg-white text-[#8E682B] font-ui font-600 text-[11px] tracking-[0.1em] uppercase hover:bg-[#F8F4EC] transition-colors duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-white focus-visible:outline-offset-2"
+            aria-label="Agendar consulta pelo WhatsApp"
           >
-            Fale conosco no WhatsApp
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            Agendar Consulta
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </motion.div>
       </div>

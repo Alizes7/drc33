@@ -1,60 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Target, MessageCircle, Award } from "lucide-react";
+import WaveDivider from "./WaveDivider";
 
 const diferenciais = [
-  { icon: Clock, number: "01", title: "Agilidade", description: "Respostas rápidas e decisões assertivas para acompanhar a velocidade dos negócios." },
-  { icon: Target, number: "02", title: "Foco em Resultados", description: "Estratégias jurídicas alinhadas aos objetivos de negócio de cada cliente." },
-  { icon: MessageCircle, number: "03", title: "Comunicação Clara", description: "Relatórios e pareceres em linguagem acessível, sem perder a rigorosidade técnica." },
-  { icon: Award, number: "04", title: "Excelência Técnica", description: "Equipe altamente qualificada com formação contínua e acompanhamento do cenário jurídico." },
+  {
+    num:   "01",
+    title: "Excelência Técnica",
+    desc:  "Equipe com formação de alto nível e atualização contínua, capaz de lidar com as mais complexas questões do direito empresarial.",
+  },
+  {
+    num:   "02",
+    title: "Atendimento Personalizado",
+    desc:  "Cada cliente recebe atenção dedicada, com soluções moldadas às especificidades do seu negócio, setor e momento estratégico.",
+  },
+  {
+    num:   "03",
+    title: "Foco em Resultados",
+    desc:  "Nossa atuação é orientada ao objetivo do cliente, com estratégias claras, comunicação transparente e métricas definidas.",
+  },
+  {
+    num:   "04",
+    title: "Relacionamento de Longo Prazo",
+    desc:  "Construímos parcerias duradouras baseadas em confiança, previsibilidade e crescimento conjunto ao longo do tempo.",
+  },
 ];
 
 export default function DiferenciaisSection() {
   return (
-    <section id="diferenciais" className="relative py-24 md:py-32 bg-[#0B0A08]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 max-w-2xl"
-        >
-          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#B6883A] mb-5 block">
-            Por Que Nos Escolher
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-[#F1ECDD]">
-            Nossos <em className="not-italic text-brass-gradient">diferenciais</em>
-          </h2>
-        </motion.div>
+    <>
+      <WaveDivider fromColor="#F8F4EC" toColor="#EFE6D8" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#2B2620]">
-          {diferenciais.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-8 border-r border-b border-[#2B2620] hover:bg-[#110F0A] transition-colors duration-500"
-            >
-              <div className="flex items-center justify-between mb-10">
-                <item.icon className="w-6 h-6 text-[#6E6757] group-hover:text-[#B6883A] transition-colors duration-500" aria-hidden="true" />
-                <span className="font-mono text-xs text-[#4A453A] group-hover:text-[#B6883A]/60 transition-colors duration-500">
-                  {item.number}
-                </span>
-              </div>
-              <h3 className="font-display text-xl text-[#F1ECDD] font-light mb-4 group-hover:text-[#D9AA5C] transition-colors duration-500">
-                {item.title}
-              </h3>
-              <p className="text-sm text-[#6E6757] group-hover:text-[#9C9484] transition-colors duration-500 leading-relaxed">
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
+      <section
+        id="diferenciais"
+        className="relative bg-[#EFE6D8] py-24 md:py-32"
+        aria-label="Nossos diferenciais"
+      >
+        {/* Decoração: arco sutil no fundo */}
+        <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
+          <svg className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.07] w-[500px] h-[500px]" viewBox="0 0 500 500">
+            {[240, 190, 140, 90].map((r) => (
+              <circle key={r} cx="250" cy="250" r={r} fill="none" stroke="#B8893B" strokeWidth="1" />
+            ))}
+          </svg>
         </div>
-      </div>
-    </section>
+
+        <div className="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65 }}
+            className="mb-16 max-w-xl"
+          >
+            <p className="section-label mb-6">Por Que Escolher a DRC</p>
+            <h2 className="font-display text-[2.4rem] sm:text-5xl text-[#222222] font-light leading-tight">
+              O que torna a DRC{" "}
+              <em className="not-italic text-gold-gradient">referência.</em>
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-px bg-[rgba(184,137,59,0.15)]">
+            {diferenciais.map((d, i) => (
+              <motion.div
+                key={d.num}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.55, delay: i * 0.08 }}
+                className="group bg-[#EFE6D8] hover:bg-white transition-colors duration-500 p-9 sm:p-12"
+              >
+                <span className="font-display text-[3.5rem] font-light text-[rgba(184,137,59,0.2)] group-hover:text-[rgba(184,137,59,0.35)] transition-colors duration-500 leading-none block mb-6">
+                  {d.num}
+                </span>
+                <h3 className="font-display text-2xl text-[#222222] font-light mb-4 group-hover:text-[#B8893B] transition-colors duration-500">
+                  {d.title}
+                </h3>
+                <p className="font-ui text-sm text-[#6C665D] leading-relaxed font-light">{d.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider fromColor="#EFE6D8" toColor="#F8F4EC" flip />
+    </>
   );
 }

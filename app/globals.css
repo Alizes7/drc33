@@ -2,166 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --ink: #0B0A08;
-  --ink-panel: #110F0A;
-  --ink-soft: #1C1A14;
-  --rule: #2B2620;
-  --rule-soft: #1E1B15;
-  --brass: #B6883A;
-  --brass-bright: #D9AA5C;
-  --brass-deep: #8C6526;
-  --parchment: #F1ECDD;
-  --parchment-soft: #E4DCC8;
-  --stone: #9C9484;
-  --stone-dim: #6E6757;
-  --stone-faint: #4A453A;
-  --stone-ghost: #38342B;
+  --ivory: #F8F4EC;
+  --ivory-soft: #F3EFE6;
+  --bege: #EFE6D8;
+  --bege-deep: #E3D5C0;
+  --white: #FFFFFF;
+  --gold: #B8893B;
+  --gold-bright: #D4A84B;
+  --gold-deep: #8E682B;
+  --gold-rule: rgba(184,137,59,0.22);
+  --gold-wash: rgba(184,137,59,0.07);
+  --ink: #222222;
+  --ink-soft: #3A3732;
+  --stone: #6C665D;
+  --stone-light: #9A948C;
+  --stone-faint: #C8C2BA;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
-  background-color: var(--ink);
-  color: var(--parchment-soft);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  background-color: var(--ivory);
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.12;
   text-wrap: balance;
-  line-height: 1.15;
   font-weight: 400;
 }
 
-p {
-  text-wrap: pretty;
-}
-
-a {
-  color: inherit;
-}
+p { text-wrap: pretty; }
+a { color: inherit; text-decoration: none; }
 
 ::selection {
-  background-color: rgba(182, 136, 58, 0.35);
-  color: var(--parchment);
+  background-color: rgba(184,137,59,0.2);
+  color: var(--ink);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ivory); }
+::-webkit-scrollbar-thumb { background: var(--bege-deep); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-::-webkit-scrollbar-track {
-  background: var(--ink);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--rule);
-  border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brass);
-}
-
-:focus-visible {
-  outline: 1px solid var(--brass);
-  outline-offset: 3px;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
-}
+:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.sr-only:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: inherit;
-  margin: inherit;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border-width: 0;
 }
 
 @layer utilities {
-  .font-display {
-    font-family: 'Fraunces', serif;
-  }
+  .font-display { font-family: 'Cormorant Garamond', serif; }
+  .font-ui { font-family: 'Montserrat', sans-serif; }
 
-  .font-mono {
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .text-brass-gradient {
-    background: linear-gradient(115deg, var(--brass-deep) 0%, var(--brass-bright) 45%, var(--brass) 100%);
+  .text-gold-gradient {
+    background: linear-gradient(110deg, var(--gold-deep) 0%, var(--gold-bright) 55%, var(--gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .num-feature {
-    font-variant-numeric: oldstyle-nums;
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid var(--gold);
+    color: var(--gold-deep);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    transition: all 0.35s ease;
+  }
+  .btn-gold:hover {
+    background: var(--gold);
+    color: #fff;
+  }
+  .btn-gold-fill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background: var(--gold);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+    transition: all 0.35s ease;
+  }
+  .btn-gold-fill:hover {
+    background: var(--gold-deep);
+    border-color: var(--gold-deep);
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-@media (max-width: 640px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (prefers-contrast: high) {
-  :root {
-    --brass: #E0B563;
   }
 }
